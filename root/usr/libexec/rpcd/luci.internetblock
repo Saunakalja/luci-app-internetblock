@@ -1,0 +1,12 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 Saunakalja
+case "$1" in
+	list) printf '%s\n' '{"status":{},"set":{"mac":"","blocked":true},"remove":{"mac":""}}' ;;
+	call)
+		case "$2" in
+			status|set|remove) /usr/libexec/internetblock "$2"; exit 0 ;;
+			*) printf '%s\n' '{"ok":false,"error":"Unknown method"}' ;;
+		esac
+		;;
+esac

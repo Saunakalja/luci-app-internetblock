@@ -1,0 +1,13 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2026 Saunakalja
+sleeper=
+trap 'if [ -n "$sleeper" ]; then kill "$sleeper" 2>/dev/null; wait "$sleeper" 2>/dev/null; fi; exit 0' TERM INT
+while :; do
+	sleep 60 &
+	sleeper=$!
+	wait "$sleeper"
+	sleeper=
+	/usr/libexec/internetblock scan >/dev/null 2>&1 ||
+		logger -t internetblock 'Device scan or firewall reconciliation failed; check Internet Access status'
+done

@@ -1,0 +1,7 @@
+{
+  "luci-app-internetblock": {
+    "description": "View LAN devices and control their IPv4 internet access",
+    "read": { "ubus": { "luci.internetblock": [ "status" ] } },
+    "write": { "ubus": { "luci.internetblock": [ "set", "remove" ] } }
+  }
+}

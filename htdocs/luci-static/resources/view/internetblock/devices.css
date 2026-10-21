@@ -1,0 +1,41 @@
+/* SPDX-License-Identifier: GPL-3.0-only
+ * Copyright (C) 2026 Saunakalja
+ */
+/* Keep a desktop table even when the active theme would stack its cells. */
+#internetblock-devices > .table {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+#internetblock-devices > .table + .table {
+	margin-top: 1.5rem;
+}
+
+#internetblock-devices > .table > .tr {
+	display: table-row;
+}
+
+#internetblock-devices > .table > .tr > .th,
+#internetblock-devices > .table > .tr > .td {
+	display: table-cell;
+	width: auto;
+	padding: .5em .5rem;
+	text-align: left;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+#internetblock-devices > .table > .tr > .td::before {
+	display: none;
+}
+
+#internetblock-devices .internetblock-online {
+	color: var(--green-color-high, #228b22);
+	font-weight: bold;
+}
+
+#internetblock-devices .internetblock-offline {
+	color: var(--red-color-high, #c62828);
+	font-weight: bold;
+}

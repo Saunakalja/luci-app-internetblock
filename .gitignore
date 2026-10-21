@@ -1,0 +1,7 @@
+/backups/
+/private/
+/build/
+/dist/
+/sdk/
+__pycache__/
+*.pyc
